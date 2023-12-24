@@ -1,3 +1,5 @@
 # Spring Boot Database CRUD example: Building Rest API with Spring Data JPA and Swagger
 
-## Example Database H2
+## Examples:
+- Database H2
+- Database postgresql
