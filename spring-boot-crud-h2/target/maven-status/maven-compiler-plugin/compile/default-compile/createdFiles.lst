@@ -1,0 +1,6 @@
+com/codesnippet/springbootcrudh2/SpringBootCrudH2Application.class
+com/codesnippet/springbootcrudh2/entity/ComEntity.class
+com/codesnippet/springbootcrudh2/service/IComEnityService.class
+com/codesnippet/springbootcrudh2/controller/RestApiController.class
+com/codesnippet/springbootcrudh2/dao/IComEntityDAO.class
+com/codesnippet/springbootcrudh2/service/ComEntityServiceImpl.class

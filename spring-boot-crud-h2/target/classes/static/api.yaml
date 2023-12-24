@@ -1,0 +1,151 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Spring Boot CRUD H2 API
+  description: A simple API to Spring Boot CRUD H2 API
+
+servers:
+  - url: http://localhost:8080/
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    ComEmptity:
+      type: object
+      properties:
+        id:
+          type: integer
+        code:
+          type: string
+        description:
+          type: string
+
+security:
+  - BasicAuth: []
+
+paths:
+  /api/delete:
+    delete:
+      description: Delete sample
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully returned an object
+
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /api/update:
+    put:
+      description: Update Object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComEmptity'
+      responses:
+        '200':
+          description: Successfully returned object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComEmptity'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /api/create:
+    post:
+      description: Create Object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComEmptity'
+      responses:
+        '200':
+          description: Successfully returned object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComEmptity'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+
+  /api/find:
+    get:
+      description: find element
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully returned an object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComEmptity'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /api/all:
+    get:
+      description: Returns a list of object
+      responses:
+        '200':
+          description: Successfully returned an object
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ComEmptity'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
