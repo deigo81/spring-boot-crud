@@ -2,4 +2,4 @@
 
 ## Examples:
 - Database H2
-- Database postgresql
+- Database Postgresql
